@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 240, 230, 210;
+  --background-start-rgb: 10, 10, 12;
+  --background-end-rgb: 30, 35, 40;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .riot-btn {
+    @apply relative px-8 py-3 bg-riot-panel border border-riot-accent text-riot-accent font-bold uppercase tracking-widest transition-all duration-300 hover:bg-riot-accent hover:text-riot-dark hover:shadow-[0_0_15px_rgba(200,170,110,0.5)];
+  }
+
+  .riot-input {
+    @apply w-full px-4 py-3 bg-riot-dark border border-riot-muted text-riot-text focus:border-riot-highlight focus:outline-none focus:shadow-[0_0_10px_rgba(10,200,185,0.3)] transition-all duration-300;
+  }
+
+  .riot-panel {
+    @apply bg-riot-panel/90 border border-riot-muted/30 backdrop-blur-sm shadow-xl;
+  }
+}
