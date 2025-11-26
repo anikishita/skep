@@ -19,8 +19,9 @@ app.use(express.json());
 // Socket.IO Setup
 const io = new Server(server, {
     cors: {
-        origin: "*", // Allow all for dev, restrict in prod
-        methods: ["GET", "POST"]
+        origin: "*",
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
