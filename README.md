@@ -73,10 +73,23 @@ Access the app at `http://localhost:3000`.
     *   `REDIS_URL`: URL of your managed Redis instance.
     *   `CORS_ORIGIN`: Your frontend domain (e.g., `https://antigravity.vercel.app`).
 
-### 2. Frontend (Vercel)
-*   Deploy the `client` directory.
-*   Set environment variables:
-    *   `NEXT_PUBLIC_SOCKET_URL`: Your deployed backend URL (e.g., `https://api.antigravity.com`).
+### Vercel Deployment (Frontend)
+
+1.  Push this repository to GitHub.
+2.  Import the project in Vercel.
+3.  **Important**: In Vercel Project Settings:
+    *   **Root Directory**: `client`
+    *   **Framework Preset**: Next.js
+4.  Set Environment Variables:
+    *   `NEXT_PUBLIC_SOCKET_URL`: The URL of your deployed backend (e.g., on Render/Railway).
+
+### Backend Deployment (Render/Railway)
+
+Since Vercel does not support long-running WebSocket servers, you must deploy the `server` directory to a platform like Render or Railway.
+1.  **Root Directory**: `server`
+2.  **Build Command**: `npm install && npm run build`
+3.  **Start Command**: `npm start`
+
 
 ## Privacy Policy
 

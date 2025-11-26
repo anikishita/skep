@@ -1,0 +1,17 @@
+{
+    "name": "antigravity-connect",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "scripts": {
+        "build": "npm run build --workspace=client",
+        "dev": "npm run dev --workspace=client",
+        "start": "npm run start --workspace=client"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
