@@ -74,9 +74,33 @@ Access the app at `http://localhost:3000`.
     *   `CORS_ORIGIN`: Your frontend domain (e.g., `https://antigravity.vercel.app`).
 
 ### 2. Frontend (Vercel)
-*   Deploy the `client` directory.
-*   Set environment variables:
-    *   `NEXT_PUBLIC_SOCKET_URL`: Your deployed backend URL (e.g., `https://api.antigravity.com`).
+
+#### Quick Deploy
+1. Import your repository in [Vercel](https://vercel.com/new)
+2. Set the **Root Directory** to `client`
+3. Vercel will automatically detect Next.js and use the correct build settings
+4. Configure the following environment variable:
+   *   `NEXT_PUBLIC_SOCKET_URL`: Your deployed backend URL (e.g., `https://api.antigravity.com`)
+5. Deploy!
+
+#### Manual Configuration
+The `client` directory includes a `vercel.json` file with the following settings:
+```json
+{
+    "framework": "nextjs",
+    "buildCommand": "npm run build",
+    "devCommand": "npm run dev",
+    "installCommand": "npm install",
+    "outputDirectory": ".next"
+}
+```
+
+#### Environment Variables
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_SOCKET_URL` | WebSocket server URL | `https://api.antigravity.com` |
+
+**Note**: The WebSocket server (backend) must be deployed separately to a platform that supports WebSocket connections (e.g., Render, Railway, Fly.io, AWS). Vercel's serverless functions do not support persistent WebSocket connections.
 
 ## Privacy Policy
 
